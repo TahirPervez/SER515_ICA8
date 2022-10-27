@@ -18,4 +18,9 @@ class UrinalsTest {
         Urinals urinals = new Urinals();
         assertFalse(urinals.readIn("00000000000000000000000000000"));
     }
+    @org.junit.jupiter.api.Test
+    void readIn_invalidCharacter() {
+        Urinals urinals = new Urinals();
+        assertFalse(urinals.readIn("00101a"));
+    }
 }
