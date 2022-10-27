@@ -77,4 +77,11 @@ public class Urinals {
         }
         return -1;
     }
+
+    /**
+     * @return 0 for success, -1 for error state
+     */
+    public int readInFromConsole() {
+        return 0;
+    }
 }
