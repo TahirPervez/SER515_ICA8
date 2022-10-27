@@ -75,4 +75,12 @@ class UrinalsTest {
         String filename = "src/main/resources/urinal.dat";
         assertTrue(urinals.readInFile(filename));
     }
+
+    @org.junit.jupiter.api.Test
+    void readinFile_fileNotFound() {
+        Urinals urinals = new Urinals();
+        String filename = "a/very/real/file.txt";
+        assertFalse(urinals.readInFile(filename));
+    }
+
 }
