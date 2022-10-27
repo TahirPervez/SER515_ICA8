@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Urinals {
 
     public Urinals() {}
@@ -82,6 +84,18 @@ public class Urinals {
      * @return 0 for success, -1 for error state
      */
     public int readInFromConsole() {
+        Scanner scan = new Scanner(System.in);
+        String input = "";
+        int res;
+        do {
+            System.out.println("Enter a set of urinals to get the free spots, or -1 to stop the program");
+            input = scan.nextLine();
+            res = validSpots(input);
+            if(res == -1 && !input.equals("-1")) {
+               System.out.println("Invalid Input");
+            }
+        } while (!input.equals("-1"));
+        System.out.println(-1);
         return 0;
     }
 }
