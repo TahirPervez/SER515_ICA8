@@ -1,9 +1,6 @@
 public class Urinals {
-    String urinals;
 
-    public Urinals() {
-        urinals = "";
-    }
+    public Urinals() {}
 
     /**
      * @param input the input string, could be read in from file or console
@@ -12,7 +9,7 @@ public class Urinals {
      *                  contains only 0s and 1s
      *                  contains no cases of "11"
      */
-    public boolean readIn(String input) {
+    public boolean checkInput(String input) {
         if(input.isEmpty() || input.length() > 20) {
             return false;
         }
@@ -27,7 +24,11 @@ public class Urinals {
                 previous = curr;
             }
         }
-        urinals = input;
         return true;
+    }
+
+    public int validSpots(String input) {
+        System.out.println("not impl");
+        return -1;
     }
 }

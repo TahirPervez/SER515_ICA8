@@ -1,31 +1,39 @@
+import java.io.File;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class UrinalsTest {
 
     @org.junit.jupiter.api.Test
-    void readIn() {
+    void checkInput() {
         Urinals urinals = new Urinals();
-        assertTrue(urinals.readIn("10001"));
+        assertTrue(urinals.checkInput("10001"));
     }
 
     @org.junit.jupiter.api.Test
-    void readIn_empty() {
+    void checkInput_empty() {
         Urinals urinals = new Urinals();
-        assertFalse(urinals.readIn(""));
+        assertFalse(urinals.checkInput(""));
     }
     @org.junit.jupiter.api.Test
-    void readIn_tooLong() {
+    void checkInput_tooLong() {
         Urinals urinals = new Urinals();
-        assertFalse(urinals.readIn("00000000000000000000000000000"));
+        assertFalse(urinals.checkInput("00000000000000000000000000000"));
     }
     @org.junit.jupiter.api.Test
-    void readIn_invalidCharacter() {
+    void checkInput_invalidCharacter() {
         Urinals urinals = new Urinals();
-        assertFalse(urinals.readIn("00101a"));
+        assertFalse(urinals.checkInput("00101a"));
     }
     @org.junit.jupiter.api.Test
-    void readIn_doubleOne() {
+    void checkInput_doubleOne() {
         Urinals urinals = new Urinals();
-        assertFalse(urinals.readIn("001011"));
+        assertFalse(urinals.checkInput("001011"));
     }
+    @org.junit.jupiter.api.Test
+    void validSpots() {
+        Urinals urinals = new Urinals();
+        assertEquals(1, urinals.validSpots("10001"));
+    }
+
 }
