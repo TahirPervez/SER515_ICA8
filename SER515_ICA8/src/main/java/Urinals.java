@@ -1,7 +1,11 @@
 public class Urinals {
+    String urinals;
 
+    public Urinals() {
+        urinals = "";
+    }
     public boolean readIn(String input) {
-        System.out.println("Not implmented");
-        return false;
+        urinals = input;
+        return true;
     }
 }
