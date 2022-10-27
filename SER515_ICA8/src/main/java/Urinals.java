@@ -27,8 +27,32 @@ public class Urinals {
         return true;
     }
 
+    /**
+     * @param input input string
+     * @return number of available spots
+     */
     public int validSpots(String input) {
-        System.out.println("not impl");
+        int count = 0;
+        System.out.println("input: " + input);
+        if(checkInput(input)) {
+            char[] inputArr = input.toCharArray();
+            char previous = '_', pre_previous = '_';
+            for(char curr : inputArr) {
+                if(pre_previous == '_') { //__00000
+                    pre_previous = curr;
+                } else if (previous == '_') { // 0_0_000
+                    previous = curr;
+                } else { // 00_0_00
+                    System.out.println("order: " + pre_previous + " " + previous + " "  + curr);
+                    if(pre_previous == '0' && previous == '0' && curr == '0') {
+                        count++;
+                    }
+                    pre_previous = previous;
+                    previous = curr;
+                }
+            }
+            return count;
+        }
         return -1;
     }
 }
