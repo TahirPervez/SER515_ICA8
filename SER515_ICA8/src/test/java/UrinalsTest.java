@@ -23,4 +23,9 @@ class UrinalsTest {
         Urinals urinals = new Urinals();
         assertFalse(urinals.readIn("00101a"));
     }
+    @org.junit.jupiter.api.Test
+    void readIn_doubleOne() {
+        Urinals urinals = new Urinals();
+        assertFalse(urinals.readIn("001011"));
+    }
 }

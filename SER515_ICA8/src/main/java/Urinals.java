@@ -9,7 +9,7 @@ public class Urinals {
             return false;
         }
         for (char curr : input.toCharArray()) {
-            if(curr != '0' || curr != '1') {
+            if(curr != '0' && curr != '1') {
                 return false;
             }
         }
