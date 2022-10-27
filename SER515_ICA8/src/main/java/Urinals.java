@@ -5,7 +5,7 @@ public class Urinals {
         urinals = "";
     }
     public boolean readIn(String input) {
-        if(input.isEmpty()) {
+        if(input.isEmpty() || input.length() > 20) {
             return false;
         }
         urinals = input;
