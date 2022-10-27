@@ -8,6 +8,11 @@ public class Urinals {
         if(input.isEmpty() || input.length() > 20) {
             return false;
         }
+        for (char curr : input.toCharArray()) {
+            if(curr != '0' || curr != '1') {
+                return false;
+            }
+        }
         urinals = input;
         return true;
     }
