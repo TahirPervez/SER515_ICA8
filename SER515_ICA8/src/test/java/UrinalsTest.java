@@ -13,4 +13,9 @@ class UrinalsTest {
         Urinals urinals = new Urinals();
         assertFalse(urinals.readIn(""));
     }
+    @org.junit.jupiter.api.Test
+    void readIn_tooLong() {
+        Urinals urinals = new Urinals();
+        assertFalse(urinals.readIn("00000000000000000000000000000"));
+    }
 }
