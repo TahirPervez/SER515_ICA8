@@ -33,8 +33,8 @@ public class Urinals {
      */
     public int validSpots(String input) {
         int count = 0;
-        System.out.println("------------------------------------");
-        System.out.println("input: " + input);
+        // System.out.println("------------------------------------");
+        // System.out.println("input: " + input);
         if(checkInput(input)) {
             char[] inputArr = input.toCharArray();
             char previous = '_', pre_previous = '_';
@@ -50,7 +50,7 @@ public class Urinals {
                         pre_previous = '1';
                     }
                 } else { // 00_0_00
-                    System.out.println("order: " + pre_previous + "" + previous + ""  + curr);
+                    // System.out.println("order: " + pre_previous + "" + previous + ""  + curr);
                     if(pre_previous == '0' && previous == '0' && curr == '0') {
                         count++;
                         inputArr[i-1] = '1';
@@ -66,11 +66,13 @@ public class Urinals {
                     previous = curr;
                 }
             }
+            /*
             System.out.print("end result: ");
             for(char curr : inputArr) {
                 System.out.print(curr);
             }
             System.out.println();
+            */
             return count;
         }
         return -1;
