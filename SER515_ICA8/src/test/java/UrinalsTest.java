@@ -69,4 +69,10 @@ class UrinalsTest {
         assertEquals(0, urinals.readInFromConsole());
     }
     */
+    @org.junit.jupiter.api.Test
+    void readInFile() {
+        Urinals urinals = new Urinals();
+        String filename = "src/main/resources/urinal.dat";
+        assertTrue(urinals.readInFile(filename));
+    }
 }

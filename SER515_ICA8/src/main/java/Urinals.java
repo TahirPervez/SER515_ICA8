@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Urinals {
@@ -96,6 +98,32 @@ public class Urinals {
             }
         } while (!input.equals("-1"));
         System.out.println(-1);
+        scan.close();
         return 0;
+    }
+
+    public boolean readInFile(String filename) {
+        StringBuffer bffr = new StringBuffer();
+        try {
+            File file = new File(filename);
+            Scanner scan = new Scanner(file);
+            String input = "";
+            while(scan.hasNext() && !input.equals("-1")) {
+                input = scan.nextLine();
+                int res = validSpots(input);
+                System.out.println(input + " : " + res);
+                if(res == -1 && !input.equals("-1")) {
+                    bffr.append("Invalid Input");
+                } else {
+                    bffr.append(res);
+                }
+            }
+            // NEED TO WRITE OUT TO FILE
+            scan.close();
+        } catch (FileNotFoundException e) {
+            return false;
+        }
+
+        return true;
     }
 }
