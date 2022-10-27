@@ -41,4 +41,9 @@ class UrinalsTest {
         Urinals urinals = new Urinals();
         assertEquals(3, urinals.validSpots("00000"));
     }
+    @org.junit.jupiter.api.Test
+    void validSpots_first() {
+        Urinals urinals = new Urinals();
+        assertEquals(1, urinals.validSpots("00101"));
+    }
 }
