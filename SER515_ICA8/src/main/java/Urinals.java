@@ -93,7 +93,7 @@ public class Urinals {
             input = scan.nextLine();
             res = validSpots(input);
             if(res == -1 && !input.equals("-1")) {
-               System.out.println("Invalid Input");
+               System.out.println("-1");
             } else {
                 System.out.println(res);
             }
@@ -114,7 +114,7 @@ public class Urinals {
                 int res = validSpots(input);
                 // System.out.println(input + " : " + res);
                 if(res == -1 && !input.equals("-1")) {
-                    bffr.append("Invalid Input");
+                    bffr.append("-1");
                 } else {
                     bffr.append(res);
                 }
