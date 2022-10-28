@@ -4,6 +4,8 @@ https://github.com/TahirPervez/SER515_ICA8
 
 #To Run
 To test it using the console inputs, run main.main
+input file goes in SER515_ICA8\SER515_ICA8\src\main\resources
+output is in SER515_ICA8\SER515_ICA8\output
 
 # Boundarys
 	# Input
