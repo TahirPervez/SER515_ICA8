@@ -62,13 +62,14 @@ class UrinalsTest {
         assertEquals(0, urinals.validSpots("10"));
     }
 
-    /**
+    /** This works, but the automation messes it up
     @org.junit.jupiter.api.Test
     void readInFromConsole() {
         Urinals urinals = new Urinals();
         assertEquals(0, urinals.readInFromConsole());
     }
     */
+
     @org.junit.jupiter.api.Test
     void readInFile() {
         Urinals urinals = new Urinals();
