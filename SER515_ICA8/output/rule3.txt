@@ -1,0 +1,12 @@
+1
+0
+3
+2
+1
+Invalid Input
+Invalid Input
+2
+Invalid Input
+4
+Invalid Input
+-1

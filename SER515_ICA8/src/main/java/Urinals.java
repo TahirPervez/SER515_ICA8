@@ -121,22 +121,20 @@ public class Urinals {
                 bffr.append("\n");
             }
             String base = "output/rule";
-            int copy = 1;
+            int copy = 0;
             boolean iterating = true;
             do { // getting file name to write to
                 String filename2 = base;
-                //if(copy != 0) {
-                    filename2 += "_" + copy;
-                //}
+                if(copy != 0) {
+                    filename2 += "" + copy;
+                }
                 filename2 += ".txt";
                 File version = new File(filename2);
                 if (version.exists()) { // iterate through
-                    System.out.println("FOUND " + filename2);
                     copy++;
                 } else { // not an existing file, need to make one
-                    System.out.println("NOT FOUND " + filename2);
                     iterating = false;
-                    FileWriter fw = new FileWriter(base+copy+".txt");
+                    FileWriter fw = new FileWriter(version);
                     BufferedWriter bw = new BufferedWriter(fw);
                     bw.write(bffr.toString());
                     bw.close();

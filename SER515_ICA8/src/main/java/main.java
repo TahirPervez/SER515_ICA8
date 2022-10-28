@@ -8,7 +8,7 @@ public class main {
         do {
             System.out.println("Enter 1 to run the program using the console, or 2 to run it using files.");
             input = scan.nextInt();
-            if (input != 1 && input != 1) {
+            if (input != 1 && input != 2) {
                 System.out.println("Invalid Input");
             } else {
                 valid = true;
