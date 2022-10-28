@@ -83,4 +83,10 @@ class UrinalsTest {
         assertFalse(urinals.readInFile(filename));
     }
 
+    @org.junit.jupiter.api.Test
+    void readinFile_writeToFile() {
+        Urinals urinals = new Urinals();
+        String filename = "src/main/resources/urinal.dat";
+        assertTrue(urinals.readInFile(filename));
+    }
 }

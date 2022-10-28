@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Urinals {
@@ -83,11 +82,11 @@ public class Urinals {
     }
 
     /**
-     * @return 0 for success, -1 for error state
+     * @return String containing all results, formatted
      */
     public int readInFromConsole() {
         Scanner scan = new Scanner(System.in);
-        String input = "";
+        String input;
         int res;
         do {
             System.out.println("Enter a set of urinals to get the free spots, or -1 to stop the program");
@@ -95,6 +94,8 @@ public class Urinals {
             res = validSpots(input);
             if(res == -1 && !input.equals("-1")) {
                System.out.println("Invalid Input");
+            } else {
+                System.out.println(res);
             }
         } while (!input.equals("-1"));
         System.out.println(-1);
@@ -103,7 +104,7 @@ public class Urinals {
     }
 
     public boolean readInFile(String filename) {
-        StringBuffer bffr = new StringBuffer();
+        StringBuilder bffr = new StringBuilder();
         try {
             File file = new File(filename);
             Scanner scan = new Scanner(file);
@@ -111,16 +112,38 @@ public class Urinals {
             while(scan.hasNext() && !input.equals("-1")) {
                 input = scan.nextLine();
                 int res = validSpots(input);
-                System.out.println(input + " : " + res);
+                // System.out.println(input + " : " + res);
                 if(res == -1 && !input.equals("-1")) {
                     bffr.append("Invalid Input");
                 } else {
                     bffr.append(res);
                 }
+                bffr.append("\n");
             }
-            // NEED TO WRITE OUT TO FILE
-            scan.close();
-        } catch (FileNotFoundException e) {
+            String base = "output/rule";
+            int copy = 1;
+            boolean iterating = true;
+            do { // getting file name to write to
+                String filename2 = base;
+                //if(copy != 0) {
+                    filename2 += "_" + copy;
+                //}
+                filename2 += ".txt";
+                File version = new File(filename2);
+                if (version.exists()) { // iterate through
+                    System.out.println("FOUND " + filename2);
+                    copy++;
+                } else { // not an existing file, need to make one
+                    System.out.println("NOT FOUND " + filename2);
+                    iterating = false;
+                    FileWriter fw = new FileWriter(base+copy+".txt");
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    bw.write(bffr.toString());
+                    bw.close();
+                    scan.close();
+                }
+            } while(iterating);
+        } catch (IOException e) {
             return false;
         }
 
